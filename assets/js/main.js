@@ -31,6 +31,8 @@
     document.querySelector('body').classList.toggle('mobile-nav-active');
     mobileNavToggleBtn.classList.toggle('bi-list');
     mobileNavToggleBtn.classList.toggle('bi-x');
+    document.querySelector('.menuBoverlay').classList.toggle('menuBoverlay-active');
+    document.querySelector('.logo').classList.toggle('logoHide');
   }
   if (mobileNavToggleBtn) {
     mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
@@ -69,6 +71,17 @@
       preloader.remove();
     });
   }
+
+
+  window.onscroll = function () {
+    var header = document.querySelector("header");
+    if (window.pageYOffset > 0) {
+      header.classList.add("sticky");
+    } else {
+      header.classList.remove("sticky");
+    }
+  };
+
 
   /**
    * Scroll top button
